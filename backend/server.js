@@ -35,6 +35,10 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
   next();
 });
+app.get('/',(req,res)=>{
+  res.send('Hello');
+})
+
 app.use('/api/users', userRoute);
 app.use('/api/products', productRoute);
 app.use("/api/orders", orderRoute);
@@ -54,7 +58,7 @@ app.get("/api/config/paypal", (req, res) => {
 //   else
 //   res.status(404).send({msg:"product not found"})
 // })
-var port = process.env.PORT||5000;
+var port = process.env.PORT || 5000;
 
 app.listen(port,()=>{
     console.log("Server started at http://localhost:5000")
